@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Mahasiswa</title>
+    <style>
+        body{
+            background: linear-gradient(to left, #2f67a6, #ffffff);
+        }
+    #logoutButton{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+      #homeButton {
+        position: absolute;
+        top: 10px;
+        right: 100px;
+     }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Informasi </h2>
+        <a href="{{url_for('logout')}}" id="logoutButton">logout</a>
+        <a href="{{ url_for('dashboard') }}" class="home-text01" id="homeButton">Beranda</a>
+        
+        <form id="formA" action="/informasiTambahan" method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+            <!-- Formulir A: Menampilkan hasil inputan    -->
+
+            <p><label for="pengingatObat">ID:</label>
+            {{ Data.id }}<p><br>
+            <label for="pengingatObat">Pengingat Obat:</label><br>
+            <P>{{ Data.pengingatObat }}</p><br>
+            <label for="jadwalKontrol">Jadwal Kontrol:</label><br>
+            <P>{{ Data.jadwalKontrol }}</></P><br>
+            <label for="jadwalKonsul">Konsultasi:</label><br>
+            <p>{{ Data.konsul }}</p><br>
+            <label for="hariKesehatan">Hari Kesehatan:</label><br>
+            <p>{{ Data.hariKesehatan }}</p><br>
+            <label for="infoTambahan">Informasi Tambahan:</label><br>
+            <p>{{ Data.infoTambahan }}</p><br><br>
+            
+        
+
+            <button type="button" onclick="editForm()">Edit</button>
+        </form> 
+        
+
+        <!-- Formulir B: Untuk mengedit inputan -->
+        <form id="formB" action="/informasiTambahan" method="POST" style="display: none;">
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+            <label for="pengingatObat">Pengingat Obat:</label><br>
+            {{ form.pengingatObat2 }}<br>
+            <label for="jadwalKontrol">Jadwal Kontrol:</label><br>
+            {{ form.jadwalKontrol2 }}<br>
+            <label for="jadwalKonsul">Konsultasi:</label><br>
+            {{ form.konsul2 }}<br>
+            <label for="hariKesehatan">Hari Kesehatan:</label><br>
+            {{ form.hariKesehatan2 }}<br>
+            <label for="infoTambahan">Informasi Tambahan:</label><br>
+            {{ form.infoTambahan2 }}<br><br>
+            
+            {{ form.submit }}
+            <button type="button" onclick="saveForm()">Save</button>
+        </form>
+    </div>
+
+    <script>
+        function editForm() {
+            document.getElementById('formA').style.display = 'none';
+            document.getElementById('formB').style.display = 'block';
+        }
+
+        function saveForm() {
+            // Lakukan penyimpanan data atau proses penyuntingan di sini
+            
+            // Setelah penyimpanan selesai, tampilkan kembali Formulir A
+            document.getElementById('formA').style.display = 'block';
+            document.getElementById('formB').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

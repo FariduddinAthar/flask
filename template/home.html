@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<style>
+  /* Styling for the body */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to left, #2f67a6, #ffffff);
+    text-align: center;
+    margin-top: 200px;
+  }
+
+  /* Styling for the heading */
+  h1 {
+    color: #333;
+    font-size: 24px;
+  }
+
+  /* Styling for the links */
+  a {
+    text-decoration: none;
+    color: #007bff;
+    margin-top: 10px;
+    display: inline-block;
+  }
+
+  /* Styling for the links on hover */
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+  <h1>Silahkan Masuk Terlebih Dahulu.</h1>
+  <a href="{{ url_for('login') }}">Login Page</a><br>
+  <a href="{{ url_for('register') }}">Register Page</a><br>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna</title>
+    <style>
+      body{
+        background: linear-gradient(to left, #2f67a6, #ffffff);
+    }
+            .home-container {
+              width: 100%;
+              display: flex;
+              overflow: auto;
+              min-height: 100vh;
+              align-items: center;
+              flex-direction: column;
+            }
+            .home-features {
+              flex: 0 0 auto;
+              width: 100%;
+              height: 771px;
+              display: flex;
+              align-items: flex-start;
+              justify-content: flex-start;
+            }
+            .home-features-container {
+              height: 677px;
+              position: relative;
+              align-items: center;
+              animation-name: none;
+              flex-direction: column;
+              animation-delay: 0s;
+              justify-content: center;
+              background-color: transparent;
+              animation-duration: 300ms;
+              animation-direction: normal;
+              animation-iteration-count: 1;
+              animation-timing-function: ease;
+            }
+            .home-beranda {
+              position: absolute;
+              top: 10px;
+              right: 100px;
+            }
+            .home-text01 {
+              font-family: "Comic Sans MS";
+            }
+            .home-log-out {
+              position: absolute;
+              top: 10px;
+              right: 20px;
+              
+            }
+            .home-navlink {
+              text-decoration: none;
+            }
+            .home-features1 {
+              gap: var(--dl-space-space-threeunits);
+              width: 1253px;
+              display: flex;
+              max-width: var(--dl-size-size-maxwidth);
+              align-items: center;
+              padding-top: var(--dl-space-space-fourunits);
+              padding-left: var(--dl-space-space-threeunits);
+              padding-right: var(--dl-space-space-threeunits);
+              flex-direction: column;
+              padding-bottom: var(--dl-space-space-fourunits);
+              justify-content: flex-start;
+            }
+            .home-nama-user {
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              justify-content: flex-start;
+            }
+            .home-mini-profil {
+              color: var(--dl-color-gray-500);
+            }
+            .home-nama-user1 {
+              color: var(--dl-color-gray-black);
+              margin-bottom: var(--dl-space-space-oneandhalfunits);
+            }
+            .home-container1 {
+              width: 100%;
+              display: grid;
+              grid-gap: var(--dl-space-space-oneandhalfunits);
+              grid-template-columns: 1fr 1fr;
+            }
+            .home-container2 {
+              gap: var(--dl-space-space-unit);
+              display: flex;
+              align-items: flex-start;
+              flex-direction: column;
+              justify-content: flex-start;
+            }
+            .home-text07 {
+              font-weight: 600;
+              line-height: 28px;
+            }
+            .home-container3 {
+              gap: var(--dl-space-space-unit);
+              display: flex;
+              align-items: flex-start;
+              flex-direction: column;
+              justify-content: flex-start;
+            }
+            .home-text09 {
+              font-weight: 600;
+              line-height: 28px;
+            }
+            .home-container4 {
+              gap: var(--dl-space-space-unit);
+              display: flex;
+              align-items: flex-start;
+              flex-direction: column;
+              justify-content: flex-start;
+            }
+            .home-text11 {
+              font-weight: 600;
+              line-height: 28px;
+            }
+            .home-container5 {
+              gap: var(--dl-space-space-unit);
+              display: flex;
+              align-items: flex-start;
+              flex-direction: column;
+              justify-content: flex-start;
+            }
+            .home-text13 {
+              font-weight: 600;
+              line-height: 28px;
+            }
+            @media(max-width: 767px) {
+              .home-features1 {
+                padding-left: var(--dl-space-space-twounits);
+                padding-right: var(--dl-space-space-twounits);
+              }
+              .home-container1 {
+                grid-template-columns: 1fr;
+              }
+              .home-feature-card {
+                flex-direction: row;
+              }
+              .home-container2 {
+                flex-direction: column;
+              }
+              .home-feature-card1 {
+                flex-direction: row;
+              }
+              .home-container3 {
+                flex-direction: column;
+              }
+              .home-feature-card2 {
+                flex-direction: row;
+              }
+              .home-container4 {
+                flex-direction: column;
+              }
+              .home-feature-card3 {
+                flex-direction: row;
+              }
+              .home-container5 {
+                flex-direction: column;
+              }
+            }
+            @media(max-width: 479px) {
+              .home-features1 {
+                padding-top: var(--dl-space-space-twounits);
+                padding-left: var(--dl-space-space-unit);
+                padding-right: var(--dl-space-space-unit);
+                padding-bottom: var(--dl-space-space-twounits);
+              }
+              .home-container2 {
+                flex-direction: column;
+              }
+              .home-container3 {
+                flex-direction: column;
+              }
+              .home-container4 {
+                flex-direction: column;
+              }
+              .home-container5 {
+                flex-direction: column;
+              }
+              
+            }
+                         
+    </style>
+</head>
+<body>
+
+
+    <div class="home-container">
+        <div class="home-features">
+            <div class="home-features-container featuresContainer">
+                <button type="button" class="home-beranda button">
+                    <span>
+                      <a href="{{ url_for('dashboard') }}" class="home-text01">Beranda</a>
+                      <br>
+                    </span>
+                  </button>
+                <button type="button" class="home-log-out button">
+                    <span>
+                        <a href="{{ url_for('logout') }}" class="home-text01">Logout</a>
+                        <br>
+                </button>
+                <div class="home-features1">
+                  <div class="home-nama-user">
+                    <span class="subJudulProfil">
+                        Profile
+                    </span>
+                    <h2 class="judulProfile heading2">Nama User : {{ user_data.nama }}</h2>
+                  </div>
+                </div>
+                <div class="home-container1">
+                  <div class="featureCard home-feature-card">
+                    <div class="home-container2">
+                      <h3 class="home-text07 heading3">ID</h3>
+                      <span class="bodySmall">
+                        ID Pengguna  yang terdaftar pada aplikasi ini adalah : {{ user.id}}
+                      </span>
+                    </div>
+                    <div class="home-container3">
+                     <h3 class="home-text09 heading3">Email</h3>
+                     <span class="bodySmall">Email : {{  user_data.email }}</span><br>
+                    </div>
+                    <div class="home-container4">
+                     <h3  class="home-text13 heading3">No KTP</h3>
+                     <span class="bodySmall">No KTP : {{  user_data.noKTP }}</span><br>
+                    </div>
+                    <div class="home-container5">
+                      <h3 class="home-text13 heading3">No WhatsApp</h3>
+                      <span class="bodySmall">WhatsApp number : {{  user_data.noKTP }} </span>
+                    </div>
+                  </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

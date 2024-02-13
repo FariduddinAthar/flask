@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar SDKI</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to left, #47ebe0, #ffffff);
+        }
+        
+        #kategoriForm {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        select {
+            font-size: 16px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        #sdkiList {
+            padding: 20px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #555;
+        }
+        
+        /* Tambahan Gaya */
+        select, button {
+            background: #fff;
+            color: rgb(0, 0, 0);
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button {
+            background: #fff;
+            color: #ffffff;
+            margin-left: 10px;
+        }
+        
+        select:hover, button:hover {
+            opacity: 0.8;
+        }
+        
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+        }
+        
+        /* Tambahan Gaya Hover */
+        button:hover, select:hover {
+            background-color: #ffffff;
+            border-color: #bcbcbc;
+        }
+        
+        /* Tombol di pojok kanan atas */
+        /* Tombol di pojok kanan atas */
+    #logoutButton{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+    #homeButton {
+        position: absolute;
+        top: 10px;
+        right: 100px;
+    }
+   
+    </style>
+</head>
+<body>
+    <h1>Pilih Kategori:</h1>
+    <form id="kategoriForm">
+        <label for="kategori">Pilih Kategori:</label>
+        <select id="kategori">
+            <option value="Fisiologis">Fisiologis</option>
+            <option value="Lingkungan">Lingkungan</option>
+            <option value="Perilaku">Perilaku</option>
+            <option value="Psikologi">Psikologi</option>
+            <option value="Relasional">Relasional</option>
+        </select>
+    </form>
+
+    <a href="{{url_for('logout')}}" id="logoutButton">logout</a>
+    <a href="{{ url_for('dashboard') }}" class="home-text01" id="homeButton">Beranda</a>
+
+    <div id="sdkiList">
+        <!-- Daftar SDKI akan muncul di sini -->
+    </div>
+
+    <script>
+        const sdkiLinks = {
+            Fisiologis: {
+                Respirasi: [
+                    { name: "0001 Bersihan Jalan Napas Tidak Efektif", link: "https://snars.web.id/sdki/d-0001-bersihan-jalan-napas-tidak-efektif/" },
+                    { name: "0002 Gangguan Penyapihan Ventilator", link: "https://snars.web.id/sdki/d-0002-gangguan-penyapihan-ventilator/" },
+                    { name: "0003 Ganguan Pertukaran Gas", link: "https://snars.web.id/sdki/d0003-ganguan-pertukaran-gas/" },
+                    { name: "0004 Gangguan Ventilasi Spontan", link: "https://snars.web.id/sdki/d0004-gangguan-ventilasi-spontan/"},
+                    { name: "0005 Pola Napas Tidak Efektif", link: "https://snars.web.id/sdki/d0005-pola-napas-tidak-efektif/"},
+                    { name: "0006 Risiko Aspirasi", link: "https://snars.web.id/sdki/d0006-risiko-aspirasi/"}
+                ],
+                Sirkulasi: [
+                    { name: "0007 Gangguan Sirkulasi Spontan", link: "https://snars.web.id/sdki/d-0007-gangguan-sirkulasi-spontan/" },
+                    { name: "0008 Penurunan Curah Jantung", link: "https://snars.web.id/sdki/d-0008-penurunan-curah-jantung/" },
+                    { name: "0009 Perfusi Perifer Tidak Efektif", link: "https://snars.web.id/sdki/d-0009-perfusi-perifer-tidak-efektif/" },
+                    { name: "0010 Risiko Gangguan Sirkulasi Spontan", link: "https://snars.web.id/sdki/d-0010-risiko-gangguan-sirkulasi-spontan/" },
+                    { name: "0011 Risiko Penurunan Curah Jantung", link: "https://snars.web.id/sdki/d-0011-risiko-penurunan-curah-jantung/" },
+                    { name: "0012 Risiko Perdarahan", link: "https://snars.web.id/sdki/d-0012-risiko-perdarahan/" },
+                    { name: "0013 Risiko Perfusi Gastrointestinal Tidak Efektif", link: "https://snars.web.id/sdki/d-0013-risiko-perfusi-gastrointestinal-tidak-efektif/" },
+                    { name: "0014 Risiko Perfusi Miokard Tidak Efektif", link: "https://snars.web.id/sdki/d-0014-risiko-perfusi-miokard-tidak-efektif/" },
+                    { name: "0015 Risiko Perfusi Perifer Tidak Efektif", link: "https://snars.web.id/sdki/d-0015-risiko-perfusi-perifer-tidak-efektif/" },
+                    { name: "0016 Risiko Perfusi Renal Tidak Efektif", link: "https://snars.web.id/sdki/d-0016-risiko-perfusi-renal-tidak-efektif/" },
+                    { name: "0017 Risiko Perfusi Serebral Tidak Efektif", link: "https://snars.web.id/sdki/d-0017-risiko-perfusi-serebral-tidak-efektif/" }
+                ],
+                'Nutrisi/Cairan': [
+                    { name: "0018 Berat Badan Lebih", link: "https://snars.web.id/sdki/d-0018-berat-badan-lebih/" },
+                    { name: "0019 Defisit Nutrisi", link: "https://snars.web.id/sdki/d-0019-defisit-nutrisi/" },
+                    { name: "0020 Diare", link: "https://snars.web.id/sdki/d-0020-diare/" },
+                    { name: "0021 Disfungsi Motilitas Gastrointestinal", link: "https://snars.web.id/sdki/d-0021-disfungsi-motilitas-gastrointestinal/" },
+                    { name: "0022 Hipervolemia", link: "https://snars.web.id/sdki/d-0022-hipervolemia/" },
+                    { name: "0023 Hipovolemia", link: "https://snars.web.id/sdki/d-0023-hipovolemia/" },
+                    { name: "0024 Ikterik Neonatus (Ikterus Neonatus)", link: "https://snars.web.id/sdki/d-0024-ikterik-neonatus/" },
+                    { name: "0025 Kesiapan Peningkatan Keseimbangan Cairan", link: "https://snars.web.id/sdki/d-0025-kesiapan-peningkatan-keseimbangan-cairan/" },
+                    { name: "0026 Kesiapan Peningkatan Nutrisi", link: "https://snars.web.id/sdki/d-0026-kesiapan-peningkatan-nutrisi/" },
+                    { name: "0027 Ketidakstabilan Kadar Glukosa Darah", link: "https://snars.web.id/sdki/d-0027-ketidakstabilan-kadar-glukosa-darah/" },
+                    { name: "0028 Menyusui Efektif", link: "https://snars.web.id/sdki/d-0028-menyusui-efektif/" },
+                    { name: "0029 Menyusui Tidak Efektif", link: "https://snars.web.id/sdki/d-0029-menyusui-tidak-efektif/" },
+                    { name: "0030 Obesitas", link: "https://snars.web.id/sdki/d-0030-obesitas/" },
+                    { name: "0031 Risiko Berat Badan Lebih", link: "https://snars.web.id/sdki/d-0031-risiko-berat-badan-lebih/" },
+                    { name: "0032 Risiko Defisit Nutrisi", link: "https://snars.web.id/sdki/d-0032-risiko-defisit-nutrisi/" },
+                    { name: "0033 Risiko Disfungsi Motilitas Gastrointestinal", link: "https://snars.web.id/sdki/d-0033-risiko-disfungsi-motilitas-gastrointestinal/" },
+                    { name: "0034 Risiko Hipovolemia", link: "https://snars.web.id/sdki/0034-risiko-hipovolemia/" },
+                    { name: "0035 Risiko Ikterik Neonatus", link: "https://snars.web.id/sdki/d-0035-risiko-ikterik-neonatus/" },
+                    { name: "0036 Risiko Ketidakseimbangan Cairan", link: "https://snars.web.id/sdki/0036-risiko-ketidakseimbangan-cairan/" },
+                    { name: "0037 Risiko Ketidakseimbangan Elektrolit", link: "https://snars.web.id/sdki/d-0037-risiko-ketidakseimbangan-elektrolit/" },
+                    { name: "0038 Risiko Ketidakstabilan Kadar Glukosa Darah", link: "https://snars.web.id/sdki/d0038-risiko-ketidakstabilan-kadar-glukosa-darah/" },
+                    { name: "0039 Risiko Syok", link: "https://snars.web.id/sdki/d-0039-risiko-syok/"}
+                ],
+                Eliminasi: [
+                    { name: "0040 Gangguan Eliminasi Urin", link: "https://snars.web.id/sdki/d-0040-gangguan-eliminasi-urin/" },
+                    { name: "0041 Inkontinensia Fekal", link: "https://snars.web.id/sdki/d-0041-inkontinensia-fekal/" },
+                    { name: "0042 Inkontinensia Urin Berlanjut", link: "https://snars.web.id/sdki/d-0042-inkontinensia-urin-berlanjut/" },
+                    { name: "0043 Inkontinensia Urin Fungsional", link: "https://snars.web.id/sdki/d-0043-inkontinensia-urin-fungsional/" },
+                    { name: "0044 Inkontinensia Urin Berlebih", link: "https://snars.web.id/sdki/d-0044-inkontinensia-urin-berlebih/" },
+                    { name: "0045 Inkontinensia Urin Refleks", link: "https://snars.web.id/sdki/d-0045-inkontinensia-urin-refleks/" },
+                    { name: "0046 Inkontinensia Urin Stres", link: "https://snars.web.id/sdki/d-0046-inkontinensia-urin-stres/" },
+                    { name: "0047 Inkontinensia Urine Urgensi", link: "https://snars.web.id/sdki/d-0047-inkontinensia-urine-urgensi/" },
+                    { name: "0048 Kesiapan Peningkatan Eliminasi Urine", link: "https://snars.web.id/sdki/d-0048-kesiapan-peningkatan-eliminasi-urin/" },
+                    { name: "0049 Konstipasi", link: "https://snars.web.id/sdki/d-0049-konstipasi/" },
+                    { name: "0050 Retensi Urin", link: "https://snars.web.id/sdki/d-0050-retensi-urin/" },
+                    { name: "0051 Risiko Inkontinensia Urin Urgensi", link: "https://snars.web.id/sdki/d-0051-risiko-inkontinensia-urin-urgensi/" },
+                    { name: "0052 Risiko Konstipasi", link: "https://snars.web.id/sdki/d-0052-risiko-konstipasi/"}
+                ],
+                'Aktivitas dan Istirahat': [
+
+                    { name: "0053 Disorganisasi Perilaku Bayi", link: "https://snars.web.id/sdki/d-0053-disorganisasi-perilaku-bayi/" },
+                    { name: "0054 Gangguan Mobilitas Fisik", link: "https://snars.web.id/sdki/0054-gangguan-mobilitas-fisik/" },
+                    { name: "0055 Gangguan Pola Tidur", link: "https://snars.web.id/sdki/d-0055-gangguan-pola-tidur/" },
+                    { name: "0056 Intoleransi Aktivitas", link: "https://snars.web.id/sdki/d-0056-intoleransi-aktivitas/" },
+                    { name: "0057 Keletihan", link: "https://snars.web.id/sdki/d-0057-keletihan/" },
+                    { name: "0058 Kesiapan Peningkatan Tidur", link: "https://snars.web.id/sdki/d-0058-kesiapan-peningkatan-tidur/" },
+                    { name: "0059 Risiko Disorganisasi Perilaku Bayi", link: "https://snars.web.id/sdki/d-0059-risiko-disorganisasi-perilaku-bayi/" },
+                    { name: "0060 Risiko Intoleransi Aktivitas", link: "https://snars.web.id/sdki/d-0060-risiko-intoleransi-aktivitas/" }
+                ],
+                Neusensori: [
+                    { name: "0061 Disrefleksia Otonom", link: "https://snars.web.id/sdki/d-0061-disrefleksia-otonom/" },
+                    { name: "0062 Gangguan Memori", link: "https://snars.web.id/sdki/d-0062-gangguan-memori/" },
+                    { name: "0063 Gangguan Menelan", link: "https://snars.web.id/sdki/d-0063-gangguan-menelan/" },
+                    { name: "0064 Konfusi Akut", link: "https://snars.web.id/sdki/d-0064-konfusi-akut/" },
+                    { name: "0065 Konfusi Kronis", link: "https://snars.web.id/sdki/d-0065-konfusi-kronis/" },
+                    { name: "0066 Penurunan Kapasitas Adaptif Intrakranial", link: "https://snars.web.id/sdki/d-0066-penurunan-kapasitas-adaptif-intrakranial/" },
+                    { name: "0067 Risiko Disfungsi Neurovaskuler Perifer", link: "https://snars.web.id/sdki/d-0067-risiko-disfungsi-neurovaskuler-perifer/" },
+                    { name: "0068 Risiko Konfusi Akut", link: "https://snars.web.id/sdki/d-0068-risiko-konfusi-akut/" }
+                ],
+                'Reproduksi dan Seksualitas': [
+                    { name: "0069 Disfungsi Seksual", link: "https://snars.web.id/sdki/d-0069-disfungsi-seksual/" },
+                    { name: "0070 Kesiapan Persalinan", link: "https://snars.web.id/sdki/d-0070-kesiapan-persalinan/" },
+                    { name: "0071 Pola Seksual Tidak Efektif", link: "https://snars.web.id/sdki/d-0071-pola-seksual-tidak-efektif/" },
+                    { name: "0072 Risiko Disfungsi Seksual", link: "https://snars.web.id/sdki/d-0072-risiko-disfungsi-seksual/" },
+                    { name: "0073 Risiko Kehamilan Tidak Dikehendaki", link: "https://snars.web.id/sdki/d-0073-risiko-kehamilan-tidak-dikehendaki/" }
+                ]
+            },
+            Lingkungan: {
+                'Keamanan dan Proteksi': [
+                    { name: "SDKI B1", link: "https://linksdkiB1.com" },
+                    { name: "SDKI B2", link: "https://linksdkiB2.com" },
+                    { name: "SDKI B3", link: "https://linksdkiB3.com" },
+                    { name: "SDKI B4", link: "https://linksdkiB4.com" },
+                    { name: "SDKI B5", link: "https://linksdkiB5.com" }
+                ]
+            },
+            Perilaku: {
+                'Kebersihan Diri': [
+                    { name: "0108 Risiko Gangguan Pertumbuhan", link: "https://snars.web.id/sdki/d-0108-risiko-gangguan-pertumbuhan/" }
+                ],
+                'Penyuluhan dan Pembelajaran': [
+                    { name: "SDKI C3", link: "https://linksdkiC3.com" },
+                    { name: "SDKI C4", link: "https://linksdkiC4.com" }
+                ]
+            },
+            Psikologi: {
+                'Nyeri dan Kenyamanan': [
+                    { name: "0074 Gangguan Rasa Nyaman", link: "https://snars.web.id/sdki/d-0074-gangguan-rasa-nyaman/" },
+                    { name: "0075 Ketidaknyamanan Pasca Partum", link: "https://snars.web.id/sdki/d-0075-ketidaknyamanan-pasca-partum/" },
+                    { name: "0076 Nausea", link: "https://snars.web.id/sdki/d-0076-nausea/" },
+                    { name: "0077 Nyeri Akut", link: "https://snars.web.id/sdki/d-0077-nyeri-akut/" },
+                    { name: "0078 Nyeri Kronis", link: "https://snars.web.id/sdki/d-0078-nyeri-kronis/" },
+                    { name: "0079 Nyeri Melahirkan", link: "https://snars.web.id/sdki/d-0079-nyeri-melahirkan/" }
+                ],
+                'Integritas Ego': [
+                    { name: "SDKI D3", link: "https://linksdkiD3.com" },
+                    { name: "SDKI D4", link: "https://linksdkiD4.com" }
+                ],
+                'Pertumbuhan dan Perkembangan': [
+                    { name: "0105 Waham", link: "https://snars.web.id/sdki/d-0105-gangguan-tumbuh-kembang/" },
+                    { name: "0106 Gangguan Tumbuh Kembang", link: "https://snars.web.id/sdki/d-0106-gangguan-tumbuh-kembang/" },
+                    { name: "0107 Risiko Gangguan Perkembangan", link: "https://snars.web.id/sdki/d-0107-risiko-gangguan-perkembangan/" }
+                ]
+            },
+            Relasional: {
+                'Interaksi Sosial': [
+                    { name: "SDKI E1", link: "https://linksdkiE1.com" },
+                    { name: "SDKI E2", link: "https://linksdkiE2.com" }
+                ]
+            }
+        };
+
+        const kategoriForm = document.getElementById("kategoriForm");
+        const sdkiList = document.getElementById("sdkiList");
+
+        kategoriForm.addEventListener("change", function() {
+            const selectedKategori = this.querySelector("select").value;
+            renderSdkiList(selectedKategori);
+        });
+
+        function renderSdkiList(kategori) {
+            sdkiList.innerHTML = "";
+            for (const subkategori in sdkiLinks[kategori]) {
+                const subkategoriHeading = document.createElement("h2");
+                subkategoriHeading.textContent = subkategori;
+                sdkiList.appendChild(subkategoriHeading);
+                const sdkiUl = document.createElement("ul");
+                sdkiLinks[kategori][subkategori].forEach(sdki => {
+                    const sdkiLi = document.createElement("li");
+                    const sdkiLink = document.createElement("a");
+                    sdkiLink.href = sdki.link;
+                    sdkiLink.textContent = sdki.name;
+                    sdkiLink.setAttribute("target", "_blank");
+                    sdkiLi.appendChild(sdkiLink);
+                    sdkiUl.appendChild(sdkiLi);
+                });
+                sdkiList.appendChild(sdkiUl);
+            }
+        }
+
+        // Render daftar SDKI Kategori Fisiologis secara default
+        renderSdkiList("Fisiologis");
+    </script>
+</body>
+</html>

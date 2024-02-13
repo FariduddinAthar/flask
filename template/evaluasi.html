@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman B</title>
+    <style>
+        body{
+            background: linear-gradient(to left, #2f67a6, #ffffff);
+        }
+        #logoutButton{
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+          #homeButton {
+            position: absolute;
+            top: 10px;
+            right: 100px;
+         }
+    </style>
+</head>
+<body>
+    <h1>Evaluasi</h1>
+    <a href="{{url_for('intervansi')}}">Intervansi</a>
+    <a href="{{url_for('logout')}}" id="logoutButton">logout</a>
+    <a href="{{ url_for('dashboard') }}" class="home-text01" id="homeButton">Beranda</a>
+    <h2>Daftar Tindakan:</h2>
+    <ul>
+        {% for query in queries %}
+            <li>
+                {{ query.no }} - {{ query.jenis_tindakan }} - {{ query.isi_tindakan }}
+                <form action="/delete_query/{{ query.id }}" method="post" style="display:inline;">
+                    <button type="submit">Hapus</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Form B (untuk menampilkan nilai) -->
+    <form id="formB" style="display:block;">
+        <h2>Evaluasi:</h2>
+        <p id="valueDisplay"></p>
+        <button type="button" onclick="showFormA()">Edit</button>
+        <button type="button" onclick="downloadValue()">Download</button>
+    </form>
+
+    <!-- Form A (untuk menginput/edit teks) -->
+    <form id="formA" style="display:none;">
+        <h2>Edit Evaluasi:</h2>
+        <textarea id="inputValue" rows="4" cols="50"></textarea><br>
+        <button type="button" onclick="submitFormA()">Submit</button>
+    </form>
+    
+        <!-- Script untuk menukar tampilan antara Form A dan Form B -->
+        <script>
+            function showFormA() {
+                document.getElementById("formB").style.display = "none";
+                document.getElementById("formA").style.display = "block";
+            }
+    
+            function submitFormA() {
+                var value = document.getElementById("inputValue").value;
+                document.getElementById("valueDisplay").innerText = value;
+                document.getElementById("formA").style.display = "none";
+                document.getElementById("formB").style.display = "block";
+            }
+            function downloadValue() {
+                var value = document.getElementById("valueDisplay").innerText;
+                var blob = new Blob([value], { type: "text/plain;charset=utf-8" });
+                saveAs(blob, "evaluasi.txt");
+            }
+        </script>
+    
+        <!-- External library untuk menyimpan file -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</body>
+</html>

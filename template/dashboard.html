@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to left, #2f67a6, #ffffff);
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .menu {
+            margin-bottom: 20px;
+        }
+        .menu a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: blue;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .credit {
+            font-size: 10px;
+            margin-top: 400px; /* Sesuaikan dengan kebutuhan Anda */
+        }
+        .welcome-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <a href="{{url_for('logout')}}">Press here to logout</a>
+            <a href="{{url_for('profile')}}"> Profil</a>
+            <a href="{{url_for('kajianPerawat')}}">Kajian Perawat</a>
+            <a href="{{url_for('diagnosa')}}">Diagnosa</a>
+            <a href="{{url_for('intervansi')}}">Intervansi</a>
+            <a href="{{url_for('evaluasi')}}">Evaluasi</a>
+            <a href="{{url_for('informasiTambahan')}}">Informasi</a>
+            <a href="{{url_for('kta')}}">KTA</a>
+            <a href="{{url_for('credit')}}">Credit</a>
+        </div>
+        <div class="content">
+            <!-- Konten beranda dapat ditambahkan di sini -->
+            <h1>Selamat datang di E-Askep!</h1>
+        </div>
+        <div class="credit">
+            <p>Credit by Kelompok 3</p>
+            <p>© 2024, All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+</html>

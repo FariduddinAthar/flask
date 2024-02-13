@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Page</title>
+<style>
+  /* Styling for the form container */
+  .form-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for the form pages */
+  .form-page {
+    display: none;
+  }
+  
+  /* Styling for the navigation buttons */
+  .nav-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  body{
+    background: linear-gradient(to left, #2f67a6, #ffffff);
+  }
+  #logoutButton{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+  #homeButton {
+    position: absolute;
+    top: 10px;
+    right: 100px;
+ }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+    <a href="{{url_for('logout')}}" id="logoutButton">logout</a>
+    <a href="{{ url_for('dashboard') }}" class="home-text01" id="homeButton">Beranda</a>
+  <!-- Form pages -->
+  <div class="form-page" id="page1">
+    <h2>Identitas Pasien</h2>
+    <!-- Form for page 1 -->
+    <form id="formPage1">
+      <label for="name">Nama:</label>
+      {{dataDiagnosa.nama}}<br>
+      <label for="jenisKelamin">Jenis Kelamin Penanggung Jawab:</label>
+      {{dataDiagnosa.jenisKelamin}}<br>
+      <label for="usia">Usia:</label>
+      {{dataDiagnosa.usia}}<br>
+      <label for="statusPerkawinan">Status Perkawinan:</label>
+      {{dataDiagnosa.statusPerkawinan}}<br>
+      <label for="agama">Agama:</label>
+      {{dataDiagnosa.agama}}<br>
+      <label for="sukuBangsa">Suku Bangsa:</label>
+      {{dataDiagnosa.sukuBangsa}}<br>
+      <label for="bahasaYangDigunakan">Bahasa Yang Digunakan:</label>
+      {{dataDiagnosa.bahasaYangDigunakan}}<br>
+      <label for="pekerjaan">Pekerjaan:</label>
+      {{dataDiagnosa.pekerjaan}}<br>
+      <label for="education">Pendidikan:</label>
+      {{dataDiagnosa.pendidikan}}<br>
+      <label for="address">Alamat:</label>
+      {{dataDiagnosa.alamat}}<br>
+      <label for="diagnosisMedis">Diagnosis Medis:</label>
+      {{dataDiagnosa.diagnosisMedis}}<br>
+    </form>
+  </div>
+  <div class="form-page" id="page2">
+    <h2>Penanggung Jawab</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage2">
+        <label for="namaPenanggungJawab">Nama Penanggung Jawab:</label>
+        {{dataDiagnosa.namaPenanggungJawab}}<br>
+        <label for="jenisKelaminPJ">Jenis Kelamin Penanggung Jawab:</label>
+        {{dataDiagnosa.jenisKelaminPJ}}<br>
+        <label for="usiaPJ">Usia Penanggung Jawab:</label>
+        {{dataDiagnosa.usiaPJ}}<br>
+        <label for="hubunganPasien">Hubungan Pasien:</label>
+        {{dataDiagnosa.hubunganPasien}}<br>
+        <label for="pendidikanPJ">Pendidikan Penanggung Jawab:</label>
+        {{dataDiagnosa.pendidikanPJ}}<br>
+        <label for="pekerjaanPJ">Pekerjaan Penanggung Jawab:</label>
+        {{dataDiagnosa.pekerjaanPJ}}<br>
+        <label for="alamatPJ">Alamat Penanggung Jawab:</label>
+        {{dataDiagnosa.alamatPJ}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page3">
+    <h2>Riwayat Kesehatan</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage3">
+        <label for="riwayatKesahatanDulu">Riwayat Kesehatan Masa Lalu:</label>
+        {{dataDiagnosa.riwayatKesahatanDulu}}<br>
+        <label for="riwayatKesahatanSekarang">Riwayat Kesehatan Sekarang:</label>
+        {{dataDiagnosa.riwayatKesahatanSekarang}}<br>
+        <label for="riwayatKesahatanKeluarga">Riwayat Kesehatan Keluarga:</label>
+        {{dataDiagnosa.riwayatKesahatanKeluarga}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page4">
+    <h2>Pola Tidur</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage4">
+        <label for="waktuTidur">Waktu Tidur:</label>
+        {{dataDiagnosa.waktuTidur}}<br>
+        <label for="waktuBangun">Waktu Bangun:</label>
+        {{dataDiagnosa.waktuBangun}}<br>
+        <label for="masalahTidur">Masalah Tidur:</label>
+        {{dataDiagnosa.masalahTidur}}<br>
+        <label for="permudahTidur">Hal-hal yang mempermudah tidur:</label>
+        {{dataDiagnosa.permudahTidur}}<br>
+        <label for="permudahBangun">Hal-hal yang mempermudah terbangun:</label>
+        {{dataDiagnosa.permudahBangun}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page5">
+    <h2>Pola Eliminasi</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage5">
+        <label for="bab">BAB:</label>
+        {{dataDiagnosa.bab}}<br>
+        <label for="bak">BAK:</label>
+        {{dataDiagnosa.bak}}<br>
+        <label for="kesulitanBabBak">Kesulitan Bab Bak:</label>
+        {{dataDiagnosa.kesulitanBabBak}}<br>
+        <label for="upayaMengatasiMasalah">Upaya Mengatasi Masalah:</label>
+        {{dataDiagnosa.upayaMengatasiMasalah}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page6">
+    <h2>Pola Makan dan Minum</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage6">
+        <label for="jumlahJenisMakan">Jumlah dan jenis makanan :</label>
+        {{dataDiagnosa.jumlahJenisMakan}}<br>
+        <label for="waktuPemberianMakan">Waktu pemberian makan :</label>
+        {{dataDiagnosa.waktuPemberianMakan}}<br>
+        <label for="jumlahJenisMinum">Jumlah dan jenis cairan :</label>
+        {{dataDiagnosa.jumlahJenisMinum}}<br>
+        <label for="waktuPemberianMinum">Waktu pemberian cairan :</label>
+        {{dataDiagnosa.waktuPemberianMinum}}<br>
+        <label for="pantangan">Pantangan :</label>
+        {{dataDiagnosa.pantangan}}<br>
+        <label for="masalahMakanMinum">Masalah makan dan minum :</label>
+        {{dataDiagnosa.masalahMakanMinum}}<br>
+        <label for="upayaMengatasiMasalahMakanMinum">Upaya mengatasi masalah :</label>
+        {{dataDiagnosa.upayaMengatasiMasalahMakanMinum}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page7">
+    <h2>Kebersihan diri / Personal hygiene</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage7">
+        <label for="pemeliharaanBadan">Pemeliharaan Badan:</label>
+        {{dataDiagnosa.pemeliharaanBadan}}<br>
+        <label for="pemeliharaanGigi">Pemeliharaan Gigi dan Mulut:</label>
+        {{dataDiagnosa.pemeliharaanGigi}}<br>
+        <label for="pemeliharaanKuku">Pemeliharaan Kuku:</label>
+        {{dataDiagnosa.pemeliharaanKuku}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page8">
+    <h2>Data Psikososial</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage8">
+        <label for="polaKomunikasi">Pola Komunikasi :</label>
+        {{dataDiagnosa.polaKomunikasi}}<br>
+        <label for="orangTerdekat">Orang terdekat dengan pasien :</label>
+        {{dataDiagnosa.orangTerdekat}}<br>
+        <label for="rekreasi">Rekreasi :</label>
+        {{dataDiagnosa.rekreasi}}<br>
+        <label for="dampakDirawat">Dampak dirawat dirumah sakit :</label>
+        {{dataDiagnosa.dampakDirawat}}<br>
+        <label for="hubunganOrangLain">Hubungan dengan orang lain/interaksi sosial :</label>
+        {{dataDiagnosa.hubunganOrangLain}}<br>
+        <label for="keluargaDihubungi">Keluarga yang bisa dihubungi :</label>
+        {{dataDiagnosa.keluargaDihubungi}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page9">
+    <h2>Data Spiritual</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage9">
+        <label for="ketaatanIbadah">Ketaatan Ibadah:</label>
+        {{dataDiagnosa.ketaatanIbadah}}<br>
+        <label for="keyakinanSehatSakit">Keyakinan terhadap Sehat dan Sakit:</label>
+        {{dataDiagnosa.keyakinanSehatSakit}}<br>
+        <label for="keyakinanPenyembuhan">Keyakinan Terhadap Penyembuhan:</label>
+        {{dataDiagnosa.keyakinanPenyembuhan}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page10">
+    <h2>Pemeriksaan Fisik</h2>
+    <!-- Form for page 1 -->
+    <form id="formPage10">
+      <label for="kesanUmum">Kesan Umum:</label>
+      {{dataDiagnosa.kesanUmum}}<br>
+      <label for="tandaVital">Tanda Vital:</label>
+      {{dataDiagnosa.tandaVital}}<br>
+      <label for="pemeriksaanKepalaLehar">Pemeriksaan Kepala dan Leher:</label>
+      {{dataDiagnosa.pemeriksaanKepalaLehar}}<br>
+      <label for="pemeriksaanMata">Pemeriksaan  Mata:</label>
+      {{dataDiagnosa.pemeriksaanMata}}<br>
+      <label for="pemeriksaanHidung">Pemeriksaan Hidung:</label>
+      {{dataDiagnosa.pemeriksaanHidung}}<br>
+      <label for="pemeriksaanTelinga">Pemeriksaan Telinga:</label>
+      {{dataDiagnosa.pemeriksaanTelinga}}<br>
+      <label for="pemeriksaanMulut">Pemeriksaan Mulut:</label>
+      {{dataDiagnosa.pemeriksaanMulut}}<br>
+      <label for="pemeriksaanThorak">Pemeriksaan Thorak:</label>
+      {{dataDiagnosa.pemeriksaanThorak}}<br>
+      <label for="pemeriksaanAbdomen">Pemeriksaan Abdomen:</label>
+      {{dataDiagnosa.pemeriksaanAbdomen}}<br>
+      <label for="pemerikasaanGenitourinaria">Pemerikasaan Genitourinaria:</label>
+      {{dataDiagnosa.pemerikasaanGenitourinaria}}<br>
+      <label for="pemeriksaanMuskuloskeletal">Pemeriksaan Muskuloskeletal:</label>
+      {{dataDiagnosa.pemeriksaanMuskuloskeletal}}<br>
+    </form>
+  </div>
+  <div class="form-page" id="page11">
+    <h2>Pemerikasaan Penunjang</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage11">
+        <label for="hasilPemeriksaan">Hasil Pemeriksaan:</label>
+        {{dataDiagnosa.hasilPemeriksaan}}<br>
+        <label for="kesimpulanPemeriksaan">Kesimpulan Pemeriksaan:</label>
+        {{dataDiagnosa.kesimpulanPemeriksaan}}<br>
+        <label for="rencanaTindakLanjut">Rencana Tindak Lanjut:</label>
+        {{dataDiagnosa.rencanaTindakLanjut}}<br>
+      </form>
+  </div>
+  <div class="form-page" id="page12">
+    <h2>Penatalakasanaan dan Terapi</h2>
+    <!-- Your form elements for page 2 here -->
+    <form id="formPage12">
+        <label for="penataLaksanaan">Penata Laksanaan:</label>
+        {{dataDiagnosa.penataLaksanaan}}<br>
+        <label for="terapi">Terapi:</label>
+        {{dataDiagnosa.terapi}}<br>
+        <label for="rencanaTindakLanjut">Rencana Tindak Lanjut:</label>
+        {{dataDiagnosa.rencanaTindakLanjut}}<br>
+      </form>
+  </div>
+
+  <div>
+    <button class="nav-btn" id="backBtn" onclick="prevPage()">Back</button>
+    <button class="nav-btn" id="nextBtn" onclick="nextPage()">Next</button>
+  </div>
+</div>
+
+<script>
+  // Current page index
+  let currentPageIndex = 1;
+  const totalPages = 13;
+
+  // Function to show current page and hide others
+  function showPage(pageIndex) {
+    const pages = document.getElementsByClassName('form-page');
+    for (let i = 0; i < pages.length; i++) {
+      if (i === pageIndex - 1) {
+        pages[i].style.display = 'block';
+      } else {
+        pages[i].style.display = 'none';
+      }
+    }
+  }
+
+  // Function to navigate to next page
+  function nextPage() {
+    if (currentPageIndex < totalPages) {
+      currentPageIndex++;
+      showPage(currentPageIndex);
+    }
+  }
+
+  // Function to navigate to previous page
+  function prevPage() {
+    if (currentPageIndex > 1) {
+      currentPageIndex--;
+      showPage(currentPageIndex);
+    }
+  }
+
+  // Show initial page
+  showPage(currentPageIndex);
+</script>
+
+</body>
+</html>

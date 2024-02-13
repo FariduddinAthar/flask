@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pasien</title>
+  <style>
+    body {
+      background: linear-gradient(to left, #2f67a6, #ffffff);
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 70%;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+    .page {
+      display: none;
+      margin-bottom: 20px; 
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    .page.active {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #C6AC8F;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    .submit-button {
+      background-color: #4CAF50;
+    }
+    #logoutButton{
+      position: absolute;
+      top: 10px;
+      right: 20px;
+  }
+    #homeButton {
+      position: absolute;
+      top: 10px;
+      right: 100px;
+   }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="{{url_for('logout')}}" id="logoutButton">logout</a>
+    <a href="{{ url_for('dashboard') }}" class="home-text01" id="homeButton">Beranda</a>
+
+    <div class="page active">
+      <h2>Kondisi Pasien</h2>
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <label for="nama">Nama :</label><br>
+        {{ form.nama }}<br>
+
+        <label for="jenisKelamin">Jenis Kelamin :</label><br>
+        {{ form.jenisKelamin }}<br>
+
+        <label for="usia">Usia:</label><br>
+        {{ form.usia }}<br>
+
+        <label for="status_perkawinan">Status Perkawinan:</label><br>
+        {{ form.statusPerkawinan }} <br>
+
+        <label for="agama">Agama:</label><br>
+        {{ form.agama }} <br>
+
+        <label for="suku_bangsa">Suku Bangsa:</label><br>
+        {{ form.sukuBangsa }}<br>
+
+        <label for="pendidikan">Pendidikan:</label><br>
+        {{ form.pendidikan}}<br>
+
+        <label for="bahasaYangDigunakan">Bahasa yang Digunakan:</label><br>
+        {{ form.bahasaYangDigunakan }}<br>
+
+        <label for="pekerjaan">Pekerjaan:</label><br>
+        {{ form.pekerjaan }}<br>
+
+        <label for="alamat">Alamat:</label><br>
+        {{ form.alamat }}<br>
+
+        <label for="diagnosisMedis">Diagnosa Medis:</label><br>
+        {{ form.diagnosisMedis }}<br>
+
+
+        <label for="namaPenanggungJawab">Nama:</label><br>
+        {{ form.namaPenanggungJawab }}<br>
+
+        <label for="jenisKelaminPJ">Jenis Kelamin:</label><br>
+        {{ form.jenisKelaminPJ }}<br>
+
+        <label for="usiaPJ">Usia:</label><br>
+        {{ form.usiaPJ }}<br>
+
+        <label for="hubunganPasien">Hubungan dengan Pasien:</label><br>
+        {{ form.hubunganPasien }}<br>
+
+        <label for="pendidikan_pj">Pendidikan:</label><br>
+        {{ form.pendidikanPJ }}<br>
+
+        <label for="pekerjaanPJ">Pekerjaan:</label><br>
+        {{ form.pekerjaanPJ }}<br>
+
+        <label for="alamatPJ">Alamat:</label><br>
+        {{ form.alamatPJ }}<br>
+
+
+        <label for="riwayatKesahatanSekarang">Riwayat Kesehatan Sekarang:</label><br>
+        {{ form.riwayatKesahatanSekarang }}<br>
+    
+        <label for="riwayatKesahatanDulu">Riwayat Kesehatan Masa Lalu:</label><br>
+        {{ form.riwayatKesahatanDulu }}<br>
+    
+        <label for="riwayatKesahatanKelurga">Riwayat Kesehatan Keluarga:</label><br>
+        {{ form.riwayatKesahatanKeluarga }} <br>
+
+        
+        <label for="waktuTidur">Waktu Tidur:</label><br>
+        {{ form.waktuTidur }}<br>
+    
+       <label for="waktuBangun">Waktu Bangun:</label><br>
+        {{ form.waktuBangun }}<br>
+
+        <label for="masalahTidur">Masalah Tidur:</label><br>
+        {{ form.masalahTidur }}<br>
+
+        <label for="permudahTidur">Hal-hal yang Mempermudah Tidur:</label><br>
+        {{ form.permudahTidur }}<br>
+
+        <label for="permudahBangun">Hal-hal yang Mempermudah Terbangun:</label><br>
+        {{ form.permudahBangun }}<br>
+
+        <label for="bab">Buang Air Besar (BAB):</label><br>
+        {{ form.bab }}<br>
+
+        <label for="bak">Buang Air Kecil (BAK):</label><br>
+        {{ form.bak }}<br>
+
+        <label for="kesulitanBabBak">Kesulitan BAB/BAK:</label><br>
+        {{ form.kesulitanBabBak }}<br>
+
+        <label for="upayaMengatasiMasalah">Upaya Mengatasi Masalah:</label><br>
+        {{ form.upayaMengatasiMasalah }}<br>
+        
+        <label for="jumlahJenisMakan">Jumlah dan Jenis Makanan:</label><br>
+        {{ form.jumlahJenisMakan }}<br>
+    
+        <label for="waktuPemberianMakan">Waktu Pemberian Makan:</label><br>
+        {{ form.waktuPemberianMakan }}<br>
+    
+        <label for="jumlahJenisMinum">Jumlah dan Jenis Cairan:</label><br>
+        {{ form.jumlahJenisMinum }}<br>
+    
+        <label for="waktuPemberianMinum">Waktu Pemberian Cairan:</label><br>
+        {{ form.waktuPemberianMinum }}<br>
+
+        <label for="pantangan">Pantangan:</label><br>
+        {{ form.pantangan }}<br>
+    
+        <label for="masalahMakanMinum">Masalah Makan dan Minum:</label><br>
+        {{ form.masalahMakanMinum }}<br>
+    
+        <label for="upayaMengatasiMasalahMakanMinum">Upaya Mengatasi Masalah Makan dan Minum:</label><br>
+        {{ form.upayaMengatasiMasalahMakanMinum }}<br>
+
+        <label for="pemeliharaanBadan">Pemeliharaan Badan:</label><br>
+        {{ form.pemeliharaanBadan }}<br>
+    
+        <label for="pemeliharaanGigi">Pemeliharaan Gigi dan Mulut:</label><br>
+        {{ form.pemeliharaanGigi }}<br>
+    
+        <label for="pemeliharaanKuku">Pemeliharaan Kuku:</label><br>
+        {{ form.pemeliharaanKuku }}<br>
+
+        <label for="kegiatan"> kegiatan : </label><br>
+        {{ form.kegiatan }}<br>
+        
+        <label for="polaKomunikasi">Pola Komunikasi:</label><br>
+        {{ form.polaKomunikasi }}<br>
+    
+        <label for="orangTerdekat">Orang yang Paling Dekat dengan Klien:</label><br>
+        {{ form.orangTerdekat }}<br>
+    
+        <label for="rekreasi">Rekreasi: Hobi dan Penggunaan Waktu Senggang:</label><br>
+        {{ form.rekreasi }}<br>
+    
+        <label for="dampakDirawat">Dampak Dirawat di Rumah Sakit:</label><br>
+        {{ form.dampakDirawat }}<br>
+    
+        <label for="hubunganOrangLain">Hubungan dengan Orang Lain / Interaksi Sosial:</label><br>
+        {{ form.hubunganOrangLain }}<br>
+    
+        <label for="keluargaDihubungi">Keluarga yang Dihubungi Bila Diperlukan:</label><br>
+        {{ form.keluargaDihubungi }}<br>
+
+   
+        <label for="ketaatanIbadah">Ketaatan Beribadah:</label><br>
+        {{ form.ketaatanIbadah }}<br>
+    
+        <label for="keyakinanSehatSakit">Keyakinan Terhadap Sehat/Sakit:</label><br>
+        {{ form.keyakinanSehatSakit }}<br>
+    
+        <label for="keyakinanPenyembuhan">Keyakinan Terhadap Penyembuhan:</label><br>
+        {{ form.keyakinanPenyembuhan }}<br>
+
+        <label for="kesanUmum">Kesan Umum / Keadaan Umum (Tinggi Badan dan Berat Badan):</label><br>
+        {{ form.kesanUmum }}<br>
+    
+        <label for="tandaVital">Tanda-tanda Vital (Suhu Tubuh, Tekanan Darah, Nadi, Respirasi):</label><br>
+        {{ form.tandaVital }}<br>
+
+        <label for="pemeriksaanKepalaLehar">Pemeriksaan Kepala dan Leher:</label><br>
+        {{ form.pemeriksaanKepalaLehar }}<br>
+    
+        <label for="pemeriksaanMata">Pemeriksaan Mata:</label><br>
+        {{ form.pemeriksaanMata }}<br>
+    
+        <label for="pemeriksaanHidung">Pemeriksaan Hidung:</label><br>
+        {{ form.pemeriksaanHidung }}<br>
+    
+        <label for="pemeriksaanTelinga">Pemeriksaan Telinga:</label><br>
+        {{ form.pemeriksaanTelinga }}<br>
+    
+        <label for="pemeriksaanMulut">Pemeriksaan Mulut:</label><br>
+        {{ form.pemeriksaanMulut }}<br>
+    
+        <label for="pemeriksaanThorak">Pemeriksaan Thorak:</label><br>
+        {{ form.pemeriksaanThorak }}<br>
+
+        <label for="pemeriksaanAbdomen">Pemeriksaan Abdomen:</label><br>
+        {{ form.pemeriksaanAbdomen }}<br>
+    
+        <label for="pemerikasaanGenitourinaria">Pemeriksaan Genitourinaria:</label><br>
+        {{ form.pemerikasaanGenitourinaria }}<br>
+    
+        <label for="pemeriksaanMuskuloskeletal">Pemeriksaan Musculoskeletal:</label><br>
+        {{ form.pemeriksaanMuskuloskeletal }}<br>
+
+        <label for="hasilPemeriksaan">Hasil Pemeriksaan:</label><br>
+        {{ form.hasilPemeriksaan }}<br>
+    
+        <label for="kesimpulanPemeriksaan">Kesimpulan Pemeriksaan:</label><br>
+        {{ form.kesimpulanPemeriksaan }}<br>
+    
+        <label for="rencanaTindakLanjut">Rencana Tindak Lanjut:</label><br>
+        {{ form.rencanaTindakLanjut }}<br>
+        
+  
+        <label for="penataLaksanaan">Penatalaksanaan:</label><br>
+        {{ form.penataLaksanaan }}<br>
+
+        <label for="terapi">Terapi:</label><br>
+        {{ form.terapi }}<br>
+
+
+        {{ form.submit }}
+        </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>credit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to left, #2f67a6, #ffffff);
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .item {
+            margin: 10px;
+            text-align: center;
+        }
+        .item img {
+            width: 200px;
+            height: auto;
+        }
+        .item span {
+            display: block;
+            margin-top: 10px;
+        }
+        #logoutButton{
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+          #homeButton {
+            position: absolute;
+            top: 10px;
+            right: 100px;
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <a href="{{url_for('logout')}}" id="logoutButton">logout</a>
+    <a href="{{ url_for('dashboard') }}" class="home-text01" id="homeButton">Beranda</a>
+        <div class="item">
+            <img src="static/AQILA NUR SAGITA.jpg" alt="Gambar 1">
+            <span>Nama : AQILA NUR SAGITA</span>
+        </div>
+        <div class="item">
+            <img src="/static/AYU FEBRIANTI.jpg" alt="Gambar 2">
+            <span>Nama : AYU FEBRIANTI</span>
+        </div>
+        <div class="item">
+            <img src="/static/MOHAMMAD GALUH PERDANA.jpg" alt="Gambar 3">
+            <span>Nama : MOHAMMAD GALUH PERDANA</span>
+        </div>
+        <div class="item">
+            <img src="/static/NABILLA SEPTIANA ALANDANI PUTRI.jpg" alt="Gambar 4">
+            <span>Nama : NABILLA SEPTIANA ALANDANI PUTRI</span>
+        </div>
+        <div class="item">
+            <img src="/static/NANDA NURMELISA ANGGRAENI.jpg" alt="Gambar 5">
+            <span>Nama : NANDA NURMELISA ANGGRAENI</span>
+        </div>
+        <div class="item">
+            <img src="/static/NUR ALYA FAJRINA.jpg" alt="Gambar 6">
+            <span>Nama : NUR ALYA FAJRINA</span>
+        </div>
+        <div class="item">
+            <img src="/static/RAHIL SAHILAH MUTHMAINAH.jpg" alt="Gambar 7">
+            <span>Nama : RAHIL SAHILAH MUTHMAINAH</span>
+        </div>
+        <div class="item">
+            <img src="/static/TANAYA DESTIANSYAH.jpg" alt="Gambar 8">
+            <span>Nama : TANAYA DESTIANSYAH</span>
+        </div>
+        <div class="item">
+            <img src="/static/YULI AMELIA.jpg" alt="Gambar 8">
+            <span>Nama : YULI AMELIA</span>
+        </div>
+    </div>
+</body>
+</html>
